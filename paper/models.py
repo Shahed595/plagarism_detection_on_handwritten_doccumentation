@@ -19,6 +19,4 @@ class PaperStoreModel(models.Model):
     department_name= models.CharField(max_length=30)
     batch_name = models.CharField(max_length=30)
     Section_name= models.CharField(max_length=30)
-    first_pub = models.TimeField(auto_now_add=True)
-    last_pub = models. TimeField(auto_now=True)
     
