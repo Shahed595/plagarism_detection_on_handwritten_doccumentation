@@ -19,4 +19,5 @@ class PaperStoreModel(models.Model):
     department_name= models.CharField(max_length=30)
     batch_name = models.CharField(max_length=30)
     Section_name= models.CharField(max_length=30)
+    paper = models.ImageField(upload_to='all_papers/', blank=True, null=True)
     

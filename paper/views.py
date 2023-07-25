@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from paper.forms import PaperStoreForm
 from paper.models import PaperStoreModel
 
@@ -12,10 +12,12 @@ def store_paper(request):
         if paper_store.is_valid():
             paper_store.save()
             # print(paper_store.cleaned_data)
+            return redirect('show_papers')
     else:
         paper_store = PaperStoreForm()
     return render(request, 'store_paper.html', {'form':paper_store})
 
 def show_papers(request):
     paper = PaperStoreModel.objects.all()
+    print(paper)
     return render(request, 'show_paper.html', {'data' : paper})

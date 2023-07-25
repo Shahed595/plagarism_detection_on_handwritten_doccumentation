@@ -4,9 +4,16 @@
 {% block content %}
 <div style="width:50%; margin:auto">
     <h1>Store The Paper</h1>
+    {% if user_profile.profile_picture %}
+    <img src="{{ user_profile.profile_picture.url }}" alt="Profile Picture">
+    {% else %}
+    <p>No papers uploaded yet.</p>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         {{form|crispy}}
+        <label for="id_profile_picture">Upload Your Paper:</label>
+        <input type="file" id="id_profile_picture" name="profile_picture">
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>
