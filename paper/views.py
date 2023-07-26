@@ -33,6 +33,7 @@ def edit_book(request,id):
     return render(request,'store_paper.html', {'form':form})
 
 def delete_paper(request,id):
-    pass
+    paper = PaperStoreModel.objects.get(pk=id).delete()
+    return redirect('show_papers')
     
     

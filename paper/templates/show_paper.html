@@ -28,7 +28,7 @@
               <td>{{item.batch_name}}</td>
               <td>{{item.Section_name}}</td>
               <td><a href="{% url 'edit_book' id=item.id %}" class="btn btn-warning btn-sm">Edit</a>
-                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                <a href="{% url 'delete_paper' id=item.id %}" class="btn btn-danger btn-sm">Delete</a>
               </td>
             </tr>
           {% endfor %}
