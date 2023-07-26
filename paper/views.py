@@ -21,3 +21,18 @@ def show_papers(request):
     paper = PaperStoreModel.objects.all()
     print(paper)
     return render(request, 'show_paper.html', {'data' : paper})
+
+def edit_book(request,id):
+    paper = PaperStoreModel.objects.get(pk=id)
+    form = PaperStoreForm(instance=paper)
+    if request.method == 'POST':
+        form = PaperStoreForm(request.POST, instance=paper)
+        if form.is_valid():
+            form.save()
+            return redirect('show_papers')
+    return render(request,'store_paper.html', {'form':form})
+
+def delete_paper(request,id):
+    pass
+    
+    
